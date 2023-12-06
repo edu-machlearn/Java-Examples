@@ -1,6 +1,7 @@
 package com.biswa.classObj;
 
 class Addition{
+    Addition(){}
     int add(int a, int b){//1
         return a+b;
     }

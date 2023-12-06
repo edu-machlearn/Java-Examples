@@ -1,12 +1,24 @@
 package com.biswa.classObj;
 
-class Student {//1 -> Student data and behavior
-    //Data
+class Student {
     int sRoll;
     String sName;
     double sMark;
-    //Function
+    Student(int sRoll,String sName){
+        this.sRoll=sRoll;
+        this.sName=sName;
+    }
+
+    Student(int sRoll,String sName, double sMark){
+        this(sRoll,sName);
+        this.sMark=sMark;
+    }
+
     void display(){
         System.out.println(sRoll+" "+sName+" "+sMark);
+        this.show();
+    }
+    void show(){
+        System.out.println("I am in show..");
     }
 }

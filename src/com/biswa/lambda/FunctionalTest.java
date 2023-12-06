@@ -1,10 +1,26 @@
 package com.biswa.lambda;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Supplier;
+import com.biswa.collection.Student;
+
+import java.util.function.*;
+
+@FunctionalInterface
+interface CalculateInterface<T,U>{
+    T calculate(T a, U b);
+}
 
 public class FunctionalTest {
-    String []name={"Biswa","Aditri","Deepika","Saumya"};
-    List<String> list= Arrays.asList(name);
+    public static void main(String[] args) {
+
+        CalculateInterface<Integer,Integer> calculateInterface=(a,b)->{
+            return a+b;
+        };
+
+        System.out.println(calculateInterface.calculate(6,20));
+        Supplier<String> supplier=()->{
+            return Student.getStudent(1,"Biswa");
+        };
+        System.out.println(supplier.get());
+
+    }
 }
