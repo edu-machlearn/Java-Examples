@@ -13,20 +13,19 @@ public class StreamTest {
         studentList.add(new Student(4,"Aditri",6));
         studentList.add(new Student(5,"Subham",10));
         System.out.println(studentList);
-        studentList.forEach(student-> System.out.println(student.getId()+" "+student.getName()+" "+ student.getAge()));
-        System.out.println("-------");
-
-        List<Student> finalStudentCollection = studentList.stream()
-                .filter(ageGt20 -> ageGt20.getAge() > 20)
-                //.map(studentToLower -> studentToLower.getName().toUpperCase())
-                .collect(Collectors.toList());
-
-        System.out.println(finalStudentCollection);
-        finalStudentCollection.forEach(stu-> System.out.println(stu.getName().toUpperCase()+" "+stu.getId()+" "+stu.getAge()));
-
         long count = studentList.stream()
-                .filter(ageCount -> ageCount.getAge() > 20)
+                .map(Student::getAge)
+                .filter(age -> age > 20)
                 .count();
         System.out.println(count);
+        List<Integer> age = studentList.stream()
+                .map(Student::getId)
+                .filter(age1->age1>=20)
+                .collect(Collectors.toList());
+        System.out.println(age);
+        String name123 = studentList.stream().map(Student::getName)
+                .filter(name -> name.equalsIgnoreCase("Saumyaranjan"))
+                .findFirst().orElse(null);
+        System.out.println(name123);
     }
 }
