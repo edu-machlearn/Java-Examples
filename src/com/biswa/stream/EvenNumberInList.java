@@ -12,5 +12,6 @@ public class EvenNumberInList {
         List<Integer> listNumber= Arrays.asList(number);
         List<Integer> evenList = listNumber.stream().filter(num -> num % 2 == 0).collect(Collectors.toList());
         System.out.println(evenList);
+        System.out.println("Test");
     }
 }
